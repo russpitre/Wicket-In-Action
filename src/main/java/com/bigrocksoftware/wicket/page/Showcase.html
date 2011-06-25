@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <title>Wicket Showcase</title>
+        <link type="text/css" href="style/style.css" rel="stylesheet"/>
+    </head>
+    <body>
+		<div id="container" >
+			<div id="header"><h1>Cheesr</h1></div>
+			<div id="contents">
+				<h2>Showcase</h2>
+				
+				<h5 class="component">Label</h5>
+				<span wicket:id="simplelabel">simple label</span>
+				<pre class="htmlcode">
+&#60;span wicket&#58;id="simplelabel"&#62;this will be replaced&#60;/span&#62;
+				</pre>
+				<pre class="javacode">
+/**
+ * Simple label
+ */
+add(new Label("simplelabel", "Just a very simple label."));
+				</pre>
+				
+				<h5 class="component">Multiline Label</h5>
+				<span wicket:id="multilinelabel">Multiline label</span>
+				<pre class="htmlcode">
+&#60;span wicket&#58;id="multilinelabel"&#62;this will be replaced&#60;/span&#62;
+				</pre>
+				<pre class="javacode">
+/**
+ *  Multiline label
+ */
+add(new MultiLineLabel("multilinelabel", "Hello\nMy name is\nRussell P. Pitre"));
+				</pre>
+				
+				
+				<h5 class="component">Label with formatting</h5>
+				<span wicket:id="formattedlabel">Label - with formating</span>
+				<pre class="htmlcode">
+&#60;span wicket&#58;id="formattedlabel"&#62;this will be replaced&#60;/span&#62;
+				</pre>
+				<pre class="javacode">
+/**
+ *  Label with formatting 
+ */
+add(new Label("formattedlabel", "A &#60;b&#62;&#60;i&#62;formatted&#60;/i&#62;&#60;/b&#62; label.").setEscapeModelStrings(false));
+				</pre>
+				<p><b>** CAUTION **</b> Be careful of injection attacks if you disable escaping.</p>
+
+			
+			
+				<h5 class="component">ExternalLink</h5>
+				<a href="#" wicket:id="externallink"></a>
+				<pre class="htmlcode">
+&#60;a href="#" wicket&#58;id="externallink"&#62;&#60;/a&#62;
+				</pre>
+				<pre class="javacode">
+/**
+ * External link
+ */
+add(new ExternalLink("externallink", "http://wicket.apache.org", "Apache Wicket Website"));
+				</pre>
+				or with a PropertyModel...
+				<pre class="javacode">
+add(new ExternalLink("externallink", new PropertyModel(recipe, "link") ,
+                       new PropertyModel(recipe, "name" ) ) ;
+				</pre>
+				
+				<h5 class="component">BookmarkablePageLink</h5>
+				<a href="#" wicket:id="bookmarkablelink">my link</a>
+				<pre class="htmlcode">
+&#60;a href="#" wicket&#58;id="bookmarkablelink"&#62;my link&#60;/a&#62;
+				</pre>
+				<pre class="javacode">
+add(new BookmarkablePageLink("bookmarkablelink", Index.class));
+				</pre>
+			</div>
+		</div>
+    </body>
+</html>
