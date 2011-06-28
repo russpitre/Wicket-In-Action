@@ -6,6 +6,12 @@
     <body>
 		<div id="container" >
 			<div id="header"><h1>Cheesr</h1></div>
+			<wicket:link>
+				<ul>
+					<li><a href="Index.html">Home</a></li>
+					<li><a href="Showcase.html">Showcase</a></li>
+				</ul>
+			</wicket:link>
 			<div id="contents">
 				<h2>Showcase</h2>
 				
@@ -74,6 +80,46 @@ add(new ExternalLink("externallink", new PropertyModel(recipe, "link") ,
 				<pre class="javacode">
 add(new BookmarkablePageLink("bookmarkablelink", Index.class));
 				</pre>
+				
+				
+				<h5 class="component">Bookmarkable Link - &#60;wicket:link&#62; </h5>
+				<ul>
+					<li><a href="./">Home</a></li>
+					<li><span><em>Showcase</em></span></li>
+				</ul>
+
+				<pre class="htmlcode">
+&#60;wicket:link&#62;
+	&#60;ul&#62;
+		&#60;li&#62;&#60;a href="Index.html"&#62;Home&#60;/a&#62;&#60;/li&#62;
+		&#60;li&#62;&#60;a href="Showcase.html"&#62;Showcase&#60;/a&#62;&#60;/li&#62;
+	&#60;/ul&#62;
+&#60;/wicket:link&#62;
+				</pre>
+
+
+
+				<h5 class="component">Link - handling onClick event</h5>
+				<pre class="htmlcode">
+&#60;a wicket:id="add" href="#"&#62;add to cart&#60;/a&#62;
+				</pre>
+				<pre class="javacode">
+/**
+ * Link to add cheese to cart
+ */
+item.add(new Link("add", item.getModel()) {
+	
+	@Override
+	public void onClick() {
+		Cheese selected = (Cheese)getModelObject();
+		getCart().getCheeses().add(selected);
+	}
+});
+				</pre>
+				
+				
+				
+				
 			</div>
 		</div> <!-- container -->
     </body>
